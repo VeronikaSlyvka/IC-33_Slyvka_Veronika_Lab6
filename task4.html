@@ -33,10 +33,14 @@
         Харків: new Date("2025-07-10"),
     };
     
-    const citites = Object.keys(concerts);
-    Concole.log(cities);
+    const cities = Object.keys(concerts);
+    console.log('Масив з містами: ', cities);
 
+    const upcomingCities = cities.filter(city => concerts[city]> new Date());
+    console.log('Міста, де концерт ще не відбувся: ', upcomingCities);
 
+    const sortCities = upcomingCities.sort((a, b) => concerts[a] - concerts[b]);
+    console.log('Відсортований масив: ', sortCities)
 
     </script>
 
