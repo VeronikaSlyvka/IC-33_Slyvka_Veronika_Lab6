@@ -7,5 +7,34 @@
 </head>
 <body>
     
+    <script>
+
+        let productId = +prompt('Input product Id');
+        
+        function successCallback (product)
+        {
+            console.log(`Product found: ${product}`);
+        }
+        
+        function errorCallback (productId)
+        {
+            console.log(`Error: Product with ID ${productId} not found.`);
+        }
+        
+        getProductDetails (productId, successCallback, errorCallback);
+        
+        function getProductDetails (productId, successCallback, errorCallback)
+        {
+            let products = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+            let product = products.find(item => item == productId);
+        
+           if (product !== undefined) 
+            successCallback (product)
+           else
+           errorCallback (productId)
+        }
+        
+        </script>
+
 </body>
 </html>
