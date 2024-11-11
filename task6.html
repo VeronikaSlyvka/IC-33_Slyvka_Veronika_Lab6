@@ -21,6 +21,39 @@
     <a href="task8.html">Завдання 8</a>
     <p></p>
     <a href="task10.html">Завдання 10</a>
+ 
+    <script>
+
+        const medicines = [
+        { name: "Noshpa", price: 170 },
+        { name: "Analgin", price: 55 },
+        { name: "Quanil", price: 310 },
+        { name: "Alphacholine", price: 390 },
+        ];
+    
+        function discount(medicines)
+        {
+            return medicines.map((medicine, index) => {
+                if(medicine.price > 300){
+                    return{
+                        id: index + 1,
+                        name: medicine.name,
+                        price: medicine.price * 0.7, //sale 30%
+                    };
+                }
+                else{
+                    return{
+                        id: index + 1,
+                        name: medicine.name,
+                        price: medicine.price,
+                    };
+                }                    
+            });
+        }
+
+        console.log(discount(medicines));
+
+    </script>
 
 
 </body>
