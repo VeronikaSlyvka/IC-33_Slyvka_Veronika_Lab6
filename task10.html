@@ -11,6 +11,12 @@
     </style>
 </head>
 <body>
+
+    <!-- Напишіть функцію checkBrackets(str) яка приймає рядок жс коду (someFn) 
+     і перевіряє правильність закриття дужок () {} []
+  Якщо рядок містить коректний код функція повертає true.
+  В іншому випадку повертає false -->
+
     
     <a href="task2.html">Завдання 2</a>
     <p></p>
@@ -21,6 +27,36 @@
     <a href="task8.html">Завдання 8</a>
     <p></p>
     <a href="task10.html">Завдання 10</a>
+
+    <script>
+        function checkBrackets(str){
+            const stack = [];
+            const brackets = {
+                '(': ')',
+                '{': '}',
+                '[': ']'
+            }
+
+            for (let char of str){
+                if (brackets[char]){
+                    stack.push(char);
+                }
+                else if (Object.values(brackets).includes(char)){
+                    const last = stack.pop();
+                    if (brackets[last] !== char) {
+                        return false;
+                    }
+                }
+            }
+
+            return stack.length === 0;
+        }
+
+        console.log("function someFn() { return [1, 2, 3]; }", checkBrackets("function someFn() { return [1, 2, 3]; }")); 
+        console.log("function someFn() { return [1, 2, 3; }", checkBrackets("function someFn() { return [1, 2, 3; }"));  
+        console.log("function someFn() { return [1, 2, 3); }",checkBrackets("function someFn() { return [1, 2, 3); }"));
+
+    </script>
 
 </body>
 </html>
