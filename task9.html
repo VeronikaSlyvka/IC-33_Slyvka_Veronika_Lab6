@@ -24,9 +24,32 @@
   <p></p>
   <a href="task10.html">Завдання 10</a>
 
-
     <script>
-  
+       
+    const tweets = [
+    { id: "000", likes: 5, tags: ["js", "nodejs"] },
+    { id: "001", likes: 2, tags: ["html", "css"] },
+    { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+    { id: "003", likes: 8, tags: ["css", "react"] },
+    { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+    ];
+
+    function countTags (tweets) {
+        const tagsObject = {};
+
+        tweets.forEach(tweet => {
+            tweet.tags.forEach(tag => {
+                if (tagsObject[tag]) 
+                    tagsObject[tag]++;
+                else
+                tagsObject[tag] = 1;  
+            });
+        });
+
+        return tagsObject;
+    }
+
+    console.log(countTags(tweets)); 
 
     </script>
 
