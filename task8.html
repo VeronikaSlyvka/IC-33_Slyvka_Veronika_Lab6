@@ -22,13 +22,6 @@
     <p></p>
     <a href="task10.html">Завдання 10</a>
 
-    <!-- Напиши функцію конструктор Storage який створює об'єкти 
-     Для управління складом товарів.  При виклику отримуватиме один агрумент 
-     - початковий масив товарів,  і записувати їх у властивість items. 
-  Додай методи класу:   getItems() - повертайте масив товарів  
-   addItems(item) - отримує новий товар та додає його до поточних 
-     removeItem(item) - отримує товар і, якщо він є, видаляє його з поточних  -->
-
     <script>
 
         const arr = ["apple", "banana", "mango"];
@@ -41,10 +34,25 @@
                 return this.items;
             };
 
+            this.addItems = function(item){
+                this.items.push(item);
+            }
 
-
+            this.removeItem = function(item){
+                const index = this.items.indexOf(item);
+                if (index !== -1)
+                    this.items.splice(index, 1);
+            }
 
         }
+
+        const storage = new Storage(arr);
+
+        console.log(storage.getItems());
+        storage.addItems('plum');
+        console.log("Add plum: ", storage.getItems());
+        storage.removeItem('banana');
+        console.log("Remove banana: ", storage.getItems());
 
     </script>
 
